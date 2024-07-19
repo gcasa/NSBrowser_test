@@ -10,6 +10,8 @@
 @interface AppDelegate ()
 
 @property (strong) IBOutlet NSWindow *window;
+@property (strong) IBOutlet NSBrowser *browser;
+
 @end
 
 @implementation AppDelegate
@@ -28,5 +30,62 @@
     return YES;
 }
 
+// Actions
+
+- (IBAction) reload: (id)sender
+{
+    [self.browser reloadColumn: 0];
+}
+
+// NSBrowser delegate
+
+- (id)browser:(NSBrowser *)browser
+        child:(NSInteger)index
+       ofItem:(id)item
+{
+    return nil;
+}
+
+- (BOOL)browser:(NSBrowser *)browser
+     isLeafItem:(id)item
+{
+    return YES;
+}
+
+- (BOOL)browser:(NSBrowser *)browser
+ shouldEditItem:(id)item
+{
+    return NO;
+}
+
+- (id)browser:(NSBrowser *)browser
+objectValueForItem:(id)item
+{
+    return nil;
+}
+
+- (void)browser:(NSBrowser *)browser
+ setObjectValue:(id)object
+        forItem:(id)item
+{
+    
+}
+
+- (id)rootItemForBrowser:(NSBrowser *)browser
+{
+    return nil;
+}
+
+- (NSViewController *)browser:(NSBrowser *)browser
+previewViewControllerForLeafItem:(id)item
+{
+    return nil;
+}
+
+- (NSViewController *)browser:(NSBrowser *)browser
+  headerViewControllerForItem:(id)item
+{
+    return nil;
+}
 
 @end
