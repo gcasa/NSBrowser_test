@@ -39,16 +39,35 @@
 
 // NSBrowser delegate
 
+- (NSInteger) browser:(NSBrowser *)browser numberOfChildrenOfItem:(id)item
+{
+    if (item == nil)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 - (id)browser:(NSBrowser *)browser
         child:(NSInteger)index
        ofItem:(id)item
 {
+    if (item == nil)
+    {
+        return @"NSObject";
+    }
+    
     return nil;
 }
 
 - (BOOL)browser:(NSBrowser *)browser
      isLeafItem:(id)item
 {
+    if (item == nil)
+    {
+        return NO;
+    }
+    
     return YES;
 }
 
@@ -61,7 +80,7 @@
 - (id)browser:(NSBrowser *)browser
 objectValueForItem:(id)item
 {
-    return nil;
+    return item;
 }
 
 - (void)browser:(NSBrowser *)browser
