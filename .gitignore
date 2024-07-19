@@ -5,3 +5,4 @@ NSBrowser_test.xcodeproj/project.xcworkspace/xcuserdata/heron.xcuserdatad/UserIn
 *.xcuserdatad
 xcuserdata
 .DS_Store
+build
