@@ -45,6 +45,11 @@
     {
         return 1;
     }
+    else if ([item isEqualToString: @"NSObject"])
+    {
+        return 2;
+    }
+
     return 0;
 }
 
@@ -56,6 +61,17 @@
     {
         return @"NSObject";
     }
+    else if ([item isEqualToString: @"NSObject"])
+    {
+        if (index == 0)
+        {
+            return @"NSArray";
+        }
+        else if (index == 1)
+        {
+            return @"NSDictionary";
+        }
+    }
     
     return nil;
 }
@@ -63,7 +79,7 @@
 - (BOOL)browser:(NSBrowser *)browser
      isLeafItem:(id)item
 {
-    if (item == nil)
+    if ([item isEqualToString: @"NSObject"])
     {
         return NO;
     }
