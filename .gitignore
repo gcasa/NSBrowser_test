@@ -1,0 +1,7 @@
+*.xcuserdata
+build
+NSBrowser_test.xcodeproj/project.xcworkspace/xcuserdata/heron.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
+*.xcuserdatad
+xcuserdata
+.DS_Store
