@@ -49,7 +49,15 @@
     {
         return 2;
     }
-
+    else if ([item isEqualToString: @"NSArray"])
+    {
+        return 1;
+    }
+    else if ([item isEqualToString: @"NSDictionary"])
+    {
+        return 1;
+    }
+    
     return 0;
 }
 
@@ -72,14 +80,30 @@
             return @"NSDictionary";
         }
     }
-    
+    else if ([item isEqualToString: @"NSArray"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableArray";
+        }
+    }
+    else if ([item isEqualToString: @"NSDictionary"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableDictionary";
+        }
+    }
+
     return nil;
 }
 
 - (BOOL)browser:(NSBrowser *)browser
      isLeafItem:(id)item
 {
-    if ([item isEqualToString: @"NSObject"])
+    if ([item isEqualToString: @"NSObject"]
+        || [item isEqualToString: @"NSDictionary"]
+        || [item isEqualToString: @"NSArray"])
     {
         return NO;
     }
@@ -90,7 +114,7 @@
 - (BOOL)browser:(NSBrowser *)browser
  shouldEditItem:(id)item
 {
-    return NO;
+    return YES;
 }
 
 - (id)browser:(NSBrowser *)browser
@@ -103,7 +127,7 @@ objectValueForItem:(id)item
  setObjectValue:(id)object
         forItem:(id)item
 {
-    
+    NSLog(@"New Object Value = %@", object);
 }
 
 - (id)rootItemForBrowser:(NSBrowser *)browser
