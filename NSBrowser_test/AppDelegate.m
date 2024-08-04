@@ -47,7 +47,7 @@
     }
     else if ([item isEqualToString: @"NSObject"])
     {
-        return 2;
+        return 3;
     }
     else if ([item isEqualToString: @"NSArray"])
     {
@@ -57,7 +57,11 @@
     {
         return 1;
     }
-    
+    else if ([item isEqualToString: @"NSString"])
+    {
+        return 1;
+    }
+
     return 0;
 }
 
@@ -79,6 +83,10 @@
         {
             return @"NSDictionary";
         }
+        else if (index == 2)
+        {
+            return @"NSString";
+        }
     }
     else if ([item isEqualToString: @"NSArray"])
     {
@@ -94,6 +102,13 @@
             return @"NSMutableDictionary";
         }
     }
+    else if ([item isEqualToString: @"NSString"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableString";
+        }
+    }
 
     return nil;
 }
@@ -103,7 +118,8 @@
 {
     if ([item isEqualToString: @"NSObject"]
         || [item isEqualToString: @"NSDictionary"]
-        || [item isEqualToString: @"NSArray"])
+        || [item isEqualToString: @"NSArray"]
+        || [item isEqualToString: @"NSString"])
     {
         return NO;
     }
